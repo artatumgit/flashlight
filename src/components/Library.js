@@ -151,10 +151,10 @@ return (
 		 <div class="px-2 py-2">
 			 <h1 className="text-lg ml-10 mr-10 mt-10 border-b">Immutable Knowledge</h1>
 			 <p className="flow-text text-md ml-10 mr-10 mb-10 break-word">
-			 The goal of this site is to give you access to information.  Think of it as dropbox or google drive, but public.  People can save and access books, articles, or really any information on a distributed cloud through this site.
+			 The goal of this site is to give you access to information that is tamper-resistant and decentralized.  Think of it as dropbox or google drive, but public.  People can save and access books, articles, or really any information on <a target="_blank" rel="noopener noreferrer" href = "https://ipfs.tech/">IPFS< / a> through this site.
 			 </p>
 			 <p className="flow-text text-md ml-10 mr-10 mb-10 break-word">
-			 A file or message is created and stored on <a target="_blank" rel="noopener noreferrer" href = "https://ipfs.tech/"> IPFS< / a>. The IPFS unique hash (CID) of the file is stored on the Ethereum blockchain and linked to the IPFS CID.  When a user connects their wallet to the neo medium, the Ethereum contract will validate the CID to verify the authenticity of the file you are viewing. In this way, the original file is stored on a distributed compute system and its authenticity is saved on the immutable <a target="_blank" rel="noopener noreferrer" href = "https://ethereum.org/en/"> Ethereum < / a> blockchain. 
+			 A file or message is created and stored on IPFS. The IPFS unique hash (CID) of the file is stored on the Ethereum blockchain and linked to the IPFS CID.  When a user connects their wallet to the neo medium, the Ethereum contract will validate the CID to verify the authenticity of the file you are viewing. In this way, the original file is stored on a distributed compute system and its authenticity is saved on the immutable <a target="_blank" rel="noopener noreferrer" href = "https://ethereum.org/en/"> Ethereum < / a> blockchain. 
 			 </p>
 			 <div class="row text-center">
 			 <div class="span4"><img src="diagram.png" class="img-fluid" alt="Responsive image"/></div>
