@@ -1,2 +1,3 @@
-# flashlight
-React app that is an interface to ipfs and ethereum for immutable data storage and authentication
+Dapp to interface with IPFS and Ethereum
+
+This is for immutable knowledge on a distributed virtual machine
