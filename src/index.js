@@ -12,7 +12,7 @@ import DistributeFile from './components/DistributeFile';
 import Library from './components/Library';
 import Profile from './components/Profile';
 import Page from './components/Page';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
