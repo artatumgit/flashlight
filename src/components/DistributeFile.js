@@ -13,16 +13,14 @@ export default function SendFile () {
   const [uploadedFile, setUploadedFile] = useState();
   const [fileCID, setFileCID] = useState();
   const [error, setError] = useState();
-  
 
-  
-  // submit form built from this guide but used an input form type button with onClick instead of button with type=submit. 
-  //https://www.filestack.com/fileschool/react/react-file-upload/
+  // file upload on change 
   function changeHandler(e) {
 	e.preventDefault();
 	setFile(e.target.files[0]);
   };
-	
+
+  // function to upload the file to IPFS
   async function submitHandler(e) {
 	e.preventDefault();
 	const formData = new FormData();
@@ -73,7 +71,7 @@ export default function SendFile () {
 				console.log(response.data)
 				setResultp(response.data)
 				return response.config.data;
-			}); //uploadJSONToIPFS(nftJSON); 
+			}); 
 			return response
         }
         catch(e) {
@@ -81,6 +79,7 @@ export default function SendFile () {
         }
     };
 
+    // run functions
     async function sendIPFS(e) {
         e.preventDefault();
 
@@ -97,7 +96,6 @@ export default function SendFile () {
   return (
     <>
       <div class="px-10 py-2">
-
         <div class="container-fluid px-10" style={{"max-height":"125vh"}}>
         <div class="flex flex-col place-items-center mt-10 ml-10 px-10 bg-gradient-to-t from-white" id="nftForm">
             <h3 class="text-center font-bold text-purple-500 mb-8">Upload a file to IPFS</h3>
@@ -107,15 +105,12 @@ export default function SendFile () {
 			<input type='button' onClick={submitHandler} value = "Submit" />            
 			</form>
 			<br></br>
-			
 			<div class="text-green text-center"> 
 			<label class="block text-purple-500 text-sm font-bold mb-2 " htmlFor="name">IPFS Unique CID: {fileCID}</label>
 			<br></br>
 			<p>View your file here:  <a target="_blank" rel="noopener noreferrer" href = {uploadedFile}>{uploadedFile} </a> </p>
-			
 			</div>
 			<br></br>
-
             </form>
         </div>
 		<Footer/>
