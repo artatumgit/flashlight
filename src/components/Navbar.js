@@ -1,10 +1,5 @@
-
 import { useEffect, useState } from 'react';
-
 import { useLocation } from 'react-router';
-//import "../node_modules/jquery/dist/jquery.min.js";
-//import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-//import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 
 function Navbar() {
 
@@ -102,6 +97,6 @@ function Navbar() {
 	</nav>
 
     );
-  }
+  };
 
 export default Navbar;
