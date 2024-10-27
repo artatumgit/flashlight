@@ -15,8 +15,6 @@ import { useEffect, useState } from "react";
 
 function App() {
 
-  //const [loggedIn, setLoggedIn ] = useState(false)
-  
   const [loggedIn, setLoggedIn ] = useState('')
   
   const childToParent = (childdata) => {
@@ -27,9 +25,7 @@ function App() {
     setLoggedIn(true)
   }
   
-
-
-   return (
+  return (
     <div>
 	<BrowserRouter>
 	 <Navbar childToParent={childToParent}/>
@@ -42,6 +38,6 @@ function App() {
 	</BrowserRouter>
     </div>
    );
-}
+};
 
 export default App;
