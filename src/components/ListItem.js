@@ -4,11 +4,13 @@ import {
 } from "react-router-dom";
   
 function ListItem(data) {
+
 	const newTo = {
 		pathname:"/Page/"+data.data.tokenId
 	}
 return (
 <Link to={newTo}>
+
 	{data.data.description && <article className="flex items-start space-x-6 p-6 mr-6 transition-colors duration-300 ease-in-out hover:bg-slate-300">
 	<img src={data.data.file} alt="" width="60" height="88" className="flex-none rounded-md bg-slate-100" />
 	<div className="min-w-0 relative flex-auto">
@@ -27,6 +29,7 @@ return (
 	</article>}
 </Link>
 )
+
 };
 
 export default ListItem;

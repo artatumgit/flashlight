@@ -5,6 +5,7 @@ import { useLocation } from "react-router";
 import axios from 'axios';
 
 export default function SendFile () {
+
 	const [formParams, updateFormParams] = useState({ name: '', description: ''});
 	const [resultp, setResultp] = useState('');
 
@@ -72,13 +73,14 @@ export default function SendFile () {
 				console.log(response.data)
 				setResultp(response.data)
 				return response.config.data;
-			}); //uploadJSONToIPFS(nftJSON); 
+			}); 
 			return response
 		}
 		catch(e) {
 			console.log("error uploading JSON metadata:", e)
 		}
 	};
+
 
 	async function sendIPFS(e) {
 		e.preventDefault();
@@ -87,6 +89,7 @@ export default function SendFile () {
 		try {
 			const metadataURL = await uploadMetadataToIPFS();
 			console.log("Uploaded!");
+
 		}
 		catch(e) {
 			alert( "Upload error"+e )
@@ -99,18 +102,17 @@ return (
 	<div class="container-fluid px-10" style={{"max-height":"125vh"}}>
 		<div class="flex flex-col place-items-center mt-10 ml-10 px-10 bg-gradient-to-t from-white" id="nftForm">
 		<h3 class="text-center font-bold text-purple-500 mb-8">Upload a file to IPFS</h3>
+
 			<form class="bg-white shadow-md rounded px-8 pt-4 pb-8 mb-4">
 			<form>
 			<input type="file" onChange={changeHandler} required />
 			<input type='button' onClick={submitHandler} value = "Submit" />
 			</form>
 			<br></br>
-			
 			<div class="text-green text-center"> 
 			<label class="block text-purple-500 text-sm font-bold mb-2 " htmlFor="name">IPFS Unique CID: {fileCID}</label>
 			<br></br>
 			<p>View your file here:  <a target="_blank" rel="noopener noreferrer" href = {uploadedFile}>{uploadedFile} </a> </p>
-			
 			</div>
 			<br></br>
 			</form>
