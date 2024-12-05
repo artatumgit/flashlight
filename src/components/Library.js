@@ -62,62 +62,12 @@ function toggleModal() {
 	setIsOpen(!isOpen);
 };
 
-async function getAllNFTs() {
-	const ethers = require("ethers");
-	//After adding your Hardhat network to your metamask, this code will get providers and signers
-	const provider = new ethers.providers.Web3Provider(window.ethereum);
-	const signer = provider.getSigner();
-	const addr = await signer.getAddress();  ////  Added this to stop RPC Error 429 - too many requests for metamask.
-	
-
-	let contract = new ethers.Contract(AuthJSON.address, AuthJSON.abi, signer)
-	
-	//create an NFT Token
-	let transaction = await contract.getAllNFTs()
-
-	//Fetch all the details of every NFT from the contract and display
-	const items = await Promise.all(transaction.map(async i => {
-	const tokenURI = await contract.tokenURI(i.tokenId);
-	let meta = await axios({ //axios.get(tokenURI);
-				method: "get",
-				url: tokenURI,
-				headers: {
-					'Accept': 'text/plain',
-				}
-		});
-	meta = meta.data;
-
-	let price = ethers.utils.formatUnits(i.price.toString(), 'ether');
-	let item = {
-	price,
-	tokenId: i.tokenId.toNumber(),
-	seller: i.seller,
-	owner: i.owner,
-	file: meta.image,
-	name: meta.name,
-	description: meta.description,
-	}
-	return item;
-	}));
-
-	updateFetched(true);
-	updateData(items);
-};
-
 function List({ children }) {
 	return (
 	<ul className="slate-100">
 		{children}
 	</ul>
   )
-};
-
-if(!dataFetched)
-try {
-		getAllNFTs();
-	}
-catch(e) {
-	alert( "Error Retrieving Hash" )
 };
 	
 return (
